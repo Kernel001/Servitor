@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">ServitorBeta</string>
+    <string name="title_activity_settings">Настройки</string>
+
+    <!-- Настройки 1С базы -->
+    <string name="c1_title">1С SQL сервер</string>
+    <string name="c1_addr">IP адрес сервера</string>
+
+    <!-- Собственные настройки -->
+    <string name="servitor_title">Настройки обмена</string>
+    <string name="servitor_db_addr">IP адрес сервера БД</string>
+    <string name="servitor_sync_mode">работать только в онлайне</string>
+
+</resources>
