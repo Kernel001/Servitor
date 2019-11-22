@@ -22,6 +22,10 @@
             app:key="c1_addr"
             app:title="@string/c1_addr"
             app:useSimpleSummaryProvider="true" />
+        <EditTextPreference
+            app:key="c1_db"
+            app:title="@string/c1_db"
+            app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/servitor_title">

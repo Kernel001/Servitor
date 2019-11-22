@@ -5,6 +5,7 @@
     <!-- Настройки 1С базы -->
     <string name="c1_title">1С SQL сервер</string>
     <string name="c1_addr">IP адрес сервера</string>
+    <string name="c1_db">Имя базы данных 1с</string>
 
     <!-- Собственные настройки -->
     <string name="servitor_title">Настройки обмена</string>
