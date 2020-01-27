@@ -30,11 +30,6 @@
 
     <PreferenceCategory app:title="@string/servitor_title">
 
-        <EditTextPreference
-            app:key="servitor_db_addr"
-            app:title="@string/servitor_db_addr"
-            app:useSimpleSummaryProvider="true" />
-
         <SwitchPreferenceCompat
             app:key="servitor_sync_mode"
             app:title="@string/servitor_sync_mode" />
