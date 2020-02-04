@@ -1,33 +1,41 @@
-package com.ab.servitor.Dao
+package com.ab.servitor.dao
 
-import android.content.Context
-import com.ab.servitor.Data.ProdItem
+import com.ab.servitor.data.ProdItem
+import com.ab.servitor.data.ProtocolMessage
+import com.ab.servitor.data.ScanResult
 import io.reactivex.Observable
 import okhttp3.*
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 import retrofit2.http.Path
 import java.nio.charset.Charset
 
 interface UtAPI {
-    @GET("ut/hs/ServitorBeta/v1/getScanCodes")
-    fun loadProductCatalog(): Observable<List<ProdItem>>
+    @GET("{db}/hs/ServitorBeta/v1/getScanCodes")
+    fun loadProductCatalog(@Path("db") db: String?): Observable<List<ProdItem>>
+
+    @POST("{db}/hs/ServitorBeta/v1/postProtocolMessage")
+    fun postProtocolMessage(@Path("db") db: String?, @Body mess: ProtocolMessage): Observable<ResponseBody>
+
+    @POST("{db}/hs/ServitorBeta/v1/postScanResult")
+    fun postScanResult(@Path("db") db: String?, @Body mess: ScanResult): Observable<ResponseBody>
 
     companion object Factory {
-        fun create(): UtAPI {
+        fun create(srvAddr: String?): UtAPI {
             val okClient = OkHttpClient.Builder()
                 .addInterceptor(BasicAuthInterceptor("КопыловАС", "Zx!33abz"))
                 .build()
 
             val retrofit = Retrofit.Builder()
-                .baseUrl("http://srv-1c-1/")
+                .baseUrl(srvAddr ?: "http://srv-1c-1/")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(MoshiConverterFactory.create())
                 .client(okClient)
                 .build()
-
             return retrofit.create(UtAPI::class.java)
         }
     }

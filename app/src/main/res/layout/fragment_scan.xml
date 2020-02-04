@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name ="data" type = "com.ab.servitor.data.ScanResult"/>
+        <variable name = "controller" type="com.ab.servitor.frag.Scanning"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout 
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView_gtin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{data.gtin}"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="0000001165465" />
+
+        <TextView
+            android:id="@+id/textView_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="@{data.name}"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_gtin"
+            tools:text="Наименование продукции и её характеристика" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_kol"
+            android:layout_width="167dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:inputType="numberDecimal"
+            android:selectAllOnFocus="true"
+            android:text="@={data.kol}"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_name"
+            tools:text="1024.588" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_day"
+            android:layout_width="80dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+
+
+            android:inputType="number"
+            android:selectAllOnFocus="true"
+            android:text="@={data.dateProd}"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_kol"
+            tools:text="15" />
+
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:text="Отправить"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText_day"
+            android:onClick="@{controller::onSendButtonClick}"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="16dp"
+            android:text="Количество"
+            app:layout_constraintEnd_toStartOf="@+id/editText_kol"
+            app:layout_constraintTop_toBottomOf="@+id/textView_name" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="День производства"
+            app:layout_constraintEnd_toStartOf="@+id/editText_day"
+            app:layout_constraintTop_toBottomOf="@+id/editText_kol" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

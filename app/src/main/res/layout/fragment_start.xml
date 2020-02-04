@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="handlers"
+            type="com.ab.servitor.frag.MainMenu" />
+    </data>
+    <LinearLayout
+
+        android:id="@+id/layout_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_scan"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:onClick="@{handlers::onScanButtonPressed}"
+            android:tag="@string/oper_scan_tag"
+            android:text="@string/button_scan_title"
+            tools:text="Сканирование" />
+    </LinearLayout>
+</layout>

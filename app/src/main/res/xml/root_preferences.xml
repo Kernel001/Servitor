@@ -21,18 +21,27 @@
         <EditTextPreference
             app:key="c1_addr"
             app:title="@string/c1_addr"
-            app:useSimpleSummaryProvider="true" />
+            app:useSimpleSummaryProvider="true"
+            app:defaultValue="http://srv-1c-1/"/>
         <EditTextPreference
             app:key="c1_db"
             app:title="@string/c1_db"
-            app:useSimpleSummaryProvider="true" />
+            app:useSimpleSummaryProvider="true"
+            app:defaultValue="ut"/>
     </PreferenceCategory>
 
     <PreferenceCategory app:title="@string/servitor_title">
 
-        <SwitchPreferenceCompat
-            app:key="servitor_sync_mode"
-            app:title="@string/servitor_sync_mode" />
+        <EditTextPreference
+            app:key="terminalPrefix"
+            app:title="@string/pref_exchangeDir_title"
+            app:useSimpleSummaryProvider="true"
+            app:summary="@string/terminal_prefix_summary" />
+        <EditTextPreference
+            app:key="terminalID"
+            app:title="@string/pref_terminalID_title"
+            app:useSimpleSummaryProvider="true"
+            app:summary="@string/terminal_id_summary"/>
 
     </PreferenceCategory>
 

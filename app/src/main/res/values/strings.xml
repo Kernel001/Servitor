@@ -10,7 +10,16 @@
     <!-- Собственные настройки -->
     <string name="servitor_title">Настройки обмена</string>
     <string name="servitor_db_addr">IP адрес сервера БД</string>
-    <string name="servitor_sync_mode">работать только в онлайне</string>
+    <string name="servitor_sync_mode">Подключиться</string>
     <string name="settings_title">Настроки</string>
+    <string name="pref_exchangeDir_title">Префикс терминала</string>
+    <string name="pref_terminalID_title">Идентификатор терминала</string>
+    <string name="terminal_prefix_summary">Префикс позволяет в дальнейшем группировать устройства в группы (допистим сканеры филиалов)</string>
+    <string name="terminal_id_summary">Задает уникальное имя для идентификации терминала в базах данных</string>
+    <string name="button_scan_title">Сканирование</string>
+    <string name="button_settings_title">Настройка</string>
 
+    <string name = "oper_scan_tag">SCAN</string>
+    <string name="kol_label_text">Количество</string>
+    <string name="dateProd_label_text">День производства</string>
 </resources>
