@@ -52,6 +52,8 @@ class MainActivity : AppCompatActivity(), OnFragmentInteractionListener {
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         binding.global = global
         setSupportActionBar(findViewById(R.id.my_toolbar))
+
+        binding.myToolbar.title="Servitor. ${applicationContext.packageManager.getPackageInfo(packageName, 0).versionName}"
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

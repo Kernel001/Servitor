@@ -52,7 +52,7 @@ class Scanning: Fragment() {
             viewModel.setDevicePrefix(PreferenceManager.getDefaultSharedPreferences(context).getString("terminalPrefix", ""))
             viewModel.setGtin(it.GTIN)
             viewModel.setName("${it.Name} (${it.DopName}), ${it.ei}")
-            viewModel.setDateProd(Calendar.getInstance().get(Calendar.DAY_OF_WEEK))
+            viewModel.setDateProd(Calendar.getInstance().get(Calendar.DAY_OF_MONTH))
             viewModel.setKol(1.0f)
             Log.d("SCAN","new code scanned: ${it.GTIN}")
         }
@@ -60,6 +60,10 @@ class Scanning: Fragment() {
 
     fun onSendButtonClick(v: View){
         context?.let{
+            if (viewModel.getGtin().isEmpty() || viewModel.getGtin().isBlank()){
+                Toast.makeText(context, "Нет скана, отправлять нечего", Toast.LENGTH_LONG).show()
+                return
+            }
             v.isEnabled = false
             reposit.postScanResult(it, viewModel)
                 ?.subscribe({

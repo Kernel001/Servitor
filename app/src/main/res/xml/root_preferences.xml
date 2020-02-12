@@ -42,7 +42,11 @@
             app:title="@string/pref_terminalID_title"
             app:useSimpleSummaryProvider="true"
             app:summary="@string/terminal_id_summary"/>
-
+        <EditTextPreference
+            app:key="timeout"
+            app:defaultValue="60"
+            app:title="Время ожидания отправки данных"
+            app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 
 </PreferenceScreen>

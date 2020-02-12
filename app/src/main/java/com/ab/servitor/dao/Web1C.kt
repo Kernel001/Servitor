@@ -18,12 +18,14 @@ object Web1C {
     private var api: UtAPI? = null
     private var srvAddr = ""
     private var dbName = ""
+    private var timeout = 0L
 
     fun init(context: Context) {
         srvAddr = PreferenceManager.getDefaultSharedPreferences(context).getString("c1_addr", "ut")?:""
         dbName = PreferenceManager.getDefaultSharedPreferences(context).getString("c1_db", "ut")?:""
+        timeout = PreferenceManager.getDefaultSharedPreferences(context).getLong("timeout", 60L)
 
-        api = UtAPI.create(srvAddr)
+        api = UtAPI.create(srvAddr, timeout)
     }
 
     fun getProductCatalog(context: Context){
