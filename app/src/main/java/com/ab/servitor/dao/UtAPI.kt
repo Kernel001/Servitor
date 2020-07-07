@@ -26,10 +26,10 @@ interface UtAPI {
     fun postScanResult(@Path("db") db: String?, @Body mess: ScanResult): Observable<ResponseBody>
 
     companion object Factory {
-        fun create(srvAddr: String?, timeout: Long): UtAPI {
+        fun create(srvAddr: String?): UtAPI {
             val okClient = OkHttpClient.Builder()
-                .addInterceptor(BasicAuthInterceptor("КопыловАС", "Zx!33abz"))
-                .connectTimeout(timeout, TimeUnit.SECONDS)
+                .addInterceptor(BasicAuthInterceptor("Servitor", "serv668"))
+                .connectTimeout(60, TimeUnit.SECONDS)
                 .readTimeout(30, TimeUnit.SECONDS)
                 .writeTimeout(15, TimeUnit.SECONDS)
                 .build()
