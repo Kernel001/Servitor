@@ -7,6 +7,16 @@ import com.squareup.moshi.Json
 import java.util.*
 
 class ScanResult: BaseObservable() {
+    @Json (name = "oper") private var _oper: String = ""
+    fun getOper():String = _oper
+    @Bindable
+    fun setOper(value:String?){
+        if (_oper!=value && value!=null) {
+            _oper = value
+            notifyPropertyChanged(BR.oper)
+        }
+    }
+
     @Json(name = "deviceID") private var _deviceID: String = ""
     @Bindable
     fun getDeviceID(): String = _deviceID

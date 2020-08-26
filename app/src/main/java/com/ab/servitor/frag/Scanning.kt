@@ -33,6 +33,8 @@ class Scanning: Fragment() {
     private val reposit = Web1C
     private var dataBinding: FragmentScanBinding? = null
 
+    fun getMode() = GlobalStatus.currentOper
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         dataBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_scan, container, false)
         dataBinding?.data = viewModel
@@ -54,6 +56,7 @@ class Scanning: Fragment() {
             viewModel.setName("${it.Name} (${it.DopName}), ${it.ei}")
             viewModel.setDateProd(Calendar.getInstance().get(Calendar.DAY_OF_MONTH))
             viewModel.setKol(1.0f)
+            viewModel.setOper(GlobalStatus.currentOper.get())
             Log.d("SCAN","new code scanned: ${it.GTIN}")
         }
     }

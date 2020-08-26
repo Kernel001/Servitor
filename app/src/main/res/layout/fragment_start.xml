@@ -23,5 +23,14 @@
             android:tag="@string/oper_scan_tag"
             android:text="@string/button_scan_title"
             tools:text="Сканирование" />
+        <Button
+            android:id="@+id/btn_invent"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:onClick="@{handlers::onInventButtonPressed}"
+            android:tag="@string/oper_invent_tag"
+            android:text="@string/button_invent_title"
+            tools:text="Сканирование" />
+
     </LinearLayout>
 </layout>

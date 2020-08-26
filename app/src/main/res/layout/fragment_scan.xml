@@ -22,6 +22,7 @@
             android:textSize="24sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="0000001165465" />
@@ -97,6 +98,20 @@
             android:text="День производства"
             app:layout_constraintEnd_toStartOf="@+id/editText_day"
             app:layout_constraintTop_toBottomOf="@+id/editText_kol" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@{controller.getMode()}"
+            android:textColor="#0040FF"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textView_name"
+            app:layout_constraintEnd_toStartOf="@+id/textView_gtin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

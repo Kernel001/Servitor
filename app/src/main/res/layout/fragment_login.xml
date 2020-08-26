@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="handlers"
+            type="com.ab.servitor.frag.FragLogin" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/login_menu"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/ServitorText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="SERVITOR"
+            android:textAlignment="center"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/versionText"
+            app:layout_constraintTop_toBottomOf="@id/ServitorText"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop = "10dp"
+            android:layout_marginStart="10dp"
+            android:text="@{handlers.getVersionText()}"
+            tools:text="Ver 1.0" />
+
+        <TextView
+            android:id="@+id/loginText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:labelFor="@id/loginEditText"
+            android:text="Логин:"
+            android:textSize="24sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/loginEditText"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/versionText" />
+
+        <EditText
+            android:id="@+id/loginEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/loginText"
+            app:layout_constraintTop_toBottomOf="@id/versionText" />
+
+        <TextView
+            android:id="@+id/passText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:labelFor="@id/passEditText"
+            android:text="Пароль:"
+            android:textSize="24sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/passEditText"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/loginText" />
+
+        <EditText
+            android:id="@+id/passEditText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            android:inputType="textPassword"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/passText"
+            app:layout_constraintStart_toEndOf="@+id/passText"
+            app:layout_constraintTop_toBottomOf="@id/loginText" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:text="Авторизация"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passEditText"
+            android:onClick="@{handlers::onAuthButtonClick}"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

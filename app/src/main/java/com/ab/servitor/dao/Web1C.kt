@@ -18,14 +18,14 @@ object Web1C {
     private var api: UtAPI? = null
     private var srvAddr = ""
     private var dbName = ""
-    //private var timeout = ""
+    private var timeout = ""
 
-    fun init(context: Context) {
+    fun init(context: Context, dbUser: String, dbPass:String) {
         srvAddr = PreferenceManager.getDefaultSharedPreferences(context).getString("c1_addr", "ut")?:""
         dbName = PreferenceManager.getDefaultSharedPreferences(context).getString("c1_db", "ut")?:""
-        //timeout = PreferenceManager.getDefaultSharedPreferences(context).getString("timeout", "60")?:"60"
+        timeout = PreferenceManager.getDefaultSharedPreferences(context).getString("timeout", "60")?:""
 
-        api = UtAPI.create(srvAddr)
+        api = UtAPI.create(srvAddr, dbUser, dbPass, timeout.toInt())
     }
 
     fun getProductCatalog(context: Context){
@@ -49,6 +49,7 @@ object Web1C {
     }
 
     fun postProtocolMessage(context:Context, message:String){
+        //вместе с паролем и логином, из настроек это поле соответственно убрать!
         val deviceId = "${PreferenceManager.getDefaultSharedPreferences(context).getString("terminalPrefix", "")}-${PreferenceManager.getDefaultSharedPreferences(context).getString("terminalID", "")}"
         val protocolMes = ProtocolMessage(deviceId, message)
         api?.postProtocolMessage(dbName, protocolMes)

@@ -33,6 +33,11 @@ class MainMenu : Fragment() {
         listener?.onFragmentInteraction(view)
     }
 
+    fun onInventButtonPressed(view: View){
+        view.tag = "INVENT"
+        listener?.onFragmentInteraction(view)
+    }
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is OnFragmentInteractionListener) {
